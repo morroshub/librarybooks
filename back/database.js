@@ -1,5 +1,3 @@
-/// path /// mongod --dbpath ~/Documents/Code-project/jsfulls/db
-
 const mongoose = require("mongoose");
 
 mongoose.connect(process.env.MONGODB_URI, {

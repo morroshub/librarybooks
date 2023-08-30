@@ -15,4 +15,9 @@ router.post('/', async (req, res) => {
     res.json({ message: 'Post exitoso' });
 });
 
+router.delete('/:id', async (req, res) =>{
+    const book = await Book.findByIdAndDelete()
+    res.json({message:'libro eliminado'});   
+
+})
 module.exports = router;

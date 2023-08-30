@@ -13,9 +13,11 @@ const morgan = require('morgan');
 const multer = require('multer');
 const path = require('path');
 
+
 //Inicializaciones ;
 const app = express();
 require('./database');
+
 
 // Settings; 
 app.set('port', process.env.PORT || 3000); /// En caso de que la env no tenga PORT, usamos el PORT por defecto.
@@ -37,6 +39,7 @@ app.use('/api/books/', require('./routes/books'));
 
 /// Static Files - Declarando la carpeta public en servidor.
 app.use(express.static(path.join(__dirname, 'public/uploads')));
+// app.use(express.static(path.join(__dirname, 'back/public')));
 
 // Start Server;
 app.listen(app.get('port'), () => {
