@@ -1,14 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin'); 
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
     
 
-    entry: './frontend/app.js',
+    entry: './frontend/app.cjs',
     output: {
         path: path.join(__dirname, '/backend/public'),
         filename: 'bundle.js'
@@ -19,7 +18,7 @@ module.exports = {
             {   
                 test: /\.css$/,
                 use: [
-                    devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    devMode ? 'style-loader' : MiniCssExtractPlugin.loader, //esto carga el CSS en nuestro archivo de back/public // dependiendo en el estadio de desarollo que estemos.
                     'css-loader'
 
 
@@ -43,6 +42,9 @@ module.exports = {
 
             }
         
+        }),
+        new MiniCssExtractPlugin({
+            filename: 'bundle.css'
         })
     ]
 
