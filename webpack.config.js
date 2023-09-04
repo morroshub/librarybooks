@@ -8,16 +8,16 @@ const devMode = process.env.NODE_ENV !== 'production';
 module.exports = {
     
 
-    entry: './front/app.js',
+    entry: './frontend/app.js',
     output: {
-        path: path.join(__dirname, '/back/public'),
+        path: path.join(__dirname, '/backend/public'),
         filename: 'bundle.js'
     },
 
-    module: {
+    module: { //modelador de cada tipo de archivos
         rules: [
             {   
-                test: /\.css$/ 
+                test: /\.css$/,
                 use: [
                     devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
                     'css-loader'
@@ -32,7 +32,7 @@ module.exports = {
 
     plugins: [ 
         new HtmlWebpackPlugin({
-            template: './front/index.html',
+            template: './frontend/index.html',
             minify: {
                 collapseWhitespace: true,
                 removeComments: true,

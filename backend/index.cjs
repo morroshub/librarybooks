@@ -38,8 +38,8 @@ app.use(express.json());
 app.use('/api/books/', require('./routes/books'));
 
 /// Static Files - Declarando la carpeta public en servidor.
-app.use(express.static(path.join(__dirname, 'public/uploads')));
-// app.use(express.static(path.join(__dirname, 'back/public')));
+app.use(express.static(path.join(__dirname, '/public')));
+
 
 // Start Server;
 app.listen(app.get('port'), () => {
