@@ -2,16 +2,16 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const devMode = process.env.NODE_ENV !== 'production';
+const devMode = process.env.NODE_ENV !== 'production';  //boolean para cargar o no el plugin CSSloader dependiendo la instancia del projecto.
 
 module.exports = {
     
-
     entry: './frontend/app.cjs',
     output: {
         path: path.join(__dirname, '/backend/public'),
         filename: 'bundle.js'
     },
+    mode: 'development',
 
     module: { //modelador de cada tipo de archivos
         rules: [

@@ -1,3 +1,2 @@
-alert('works');
+require: "./styles/app.css";
 
-require('./styles/styles.css');
