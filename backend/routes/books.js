@@ -2,7 +2,6 @@ const { Router } = require('express');
 const router = Router();
 const Book = require('../models/book');
 
-
 // Manejar errores con una función de utilidad
 const handleError = (res, error) => {
     console.error('Error:', error);
@@ -20,7 +19,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const { title, author, isbn } = req.body;
-    const imagePath = '../public/uploads/' + req.file.filename;
+    const imagePath = '../uploads/' + req.file.filename;
     
     try {
         const newBook = new Book({ title, author, isbn, imagePath });
@@ -45,3 +44,9 @@ router.delete('/:id', async (req, res) => {
 });
 
 module.exports = router;
+
+
+
+
+// link de stack nos habia servido 
+// https://stackoverflow.com/questions/49031758/node-js-cors-error
