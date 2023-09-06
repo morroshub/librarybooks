@@ -1,8 +1,9 @@
 require('./styles/app.css');
 
-const Bookservice = require('./services/Booksservices.cjs');
+const Bookservices = require('./services/Booksservices.cjs');
 
-document.getElementById('book-form').addEventListener('submit', async (e) => {  // Capturamos el evento
+document.getElementById('book-form')
+.addEventListener('submit', async (e) => {  // Capturamos el evento
     e.preventDefault();
 
     const title = document.getElementById('title').value;
@@ -11,12 +12,13 @@ document.getElementById('book-form').addEventListener('submit', async (e) => {  
     const image = document.getElementById('image').files;
 
     const formData = new FormData();
+    
     formData.append('image', image[0]);
     formData.append('title', title);
     formData.append('author', author);
     formData.append('isbn', isbn);
 
-    const bookService = new Bookservice();
+    const bookService = new Bookservices();
 
     try {
         const response = await bookService.postBook(formData);
